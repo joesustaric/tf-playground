@@ -6,4 +6,4 @@ install:
   - pip install checkov
 
 script:
-  - script/check.sh
+  - scripts/check.sh
