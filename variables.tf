@@ -10,18 +10,16 @@
 # }
 
 variable "region" {
-  type = string
-  default = "ap-southeast-2"
+  type        = string
+  description = "AWS Region to launch into"
 }
 
 variable "env" {
-  type = string
-  default = "production"
+  type        = string
   description = "The name of the Environment"
 }
 
 variable "team" {
-  type = string
-  default = "team-coffee"
+  type        = string
   description = "Team that owns the environmnet"
 }
