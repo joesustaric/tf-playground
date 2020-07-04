@@ -1,5 +1,5 @@
 # About
-Just me messing around with TF
+Just me messing around with TF [![Build Status](https://travis-ci.org/joesustaric/tf-playground.svg?branch=master)](https://travis-ci.org/joesustaric/tf-playground)
 
 I want to attempt...
 
