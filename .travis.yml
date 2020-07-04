@@ -1,8 +1,9 @@
-services:
-  - docker
+language: python
+python:
+  - "3.6"
 
-before_install:
-- docker pull bridgecrew/checkov
+install:
+  - pip install checkov
 
 script:
-  - echo "hi"
+  - script/check.sh
