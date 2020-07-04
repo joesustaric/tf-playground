@@ -6,6 +6,7 @@ I want to attempt...
 - [ ] Create a AWS VPC including multi AZ private and public subnets
 - [ ] Bastion box to access VPC
 - [ ] ECS cluster
+- [ ] Get checkov running in a CI?
 .. maybe more.
 
 
