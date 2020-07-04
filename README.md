@@ -5,14 +5,11 @@ I want to attempt...
 
 - [ ] Create a AWS VPC including multi AZ private and public subnets
 - [ ] Bastion box to access VPC
-- [ ] ECS cluster
-- [ ] Get checkov running in a CI?
-.. maybe more.
+- [ ] ECS cluster? / something in there?
+- [ ] Use [checkov](https://www.checkov.io/)
+- [x] Get checkov running in a CI?
+- [ ] Also attempt similar as above but maybe for GCP..
 
-
-Also attempt similar as above but maybe for GCP..
-
-Also Playing with https://www.checkov.io/  
 install `pip install checkov`
 
 This also uses `asdf-vm` for version management.
@@ -26,11 +23,8 @@ chekov
 
 1. Install Terraform. `brew install terraform`
 2. Tab auto completion `terraform -install-autocomplete`
-3. install checkov `pip install checkov`
-
-
-## Terraform Setup
-`terraform init`
+3. `terraform init`
+4. install checkov `pip install checkov`
 
 
 ## WIP notes
