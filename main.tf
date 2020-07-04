@@ -18,7 +18,7 @@ provider "aws" {
   # secret_key = var.aws_secret_access_key
 
   version = "~> 2.0"
-  region = "ap-southeast-2"
+  region  = "ap-southeast-2"
 }
 
 # Doco https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.44.0
@@ -27,12 +27,12 @@ provider "aws" {
 # Virtual Private Cloud 
 # https://www.terraform.io/docs/providers/aws/r/vpc.html
 # https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
-resource "aws_vpc" "main" { # "aws_vps" = type , "joes-vpc" = name
+resource "aws_vpc" "main" {  # "aws_vps" = type , "joes-vpc" = name
   cidr_block = "10.0.0.0/16" # 65536 ip addresses
   tags = {
-    name = "Main VPC"
+    Name = "Main VPC"
     team = var.team
-    env = var.env
+    env  = var.env
   }
 }
 
@@ -44,6 +44,23 @@ resource "aws_internet_gateway" "main" {
 
   tags = {
     Name = "Main IG"
-    env = var.env
+    env  = var.env
   }
+}
+
+# Routing table holds routing rules
+resource "aws_route_table" "igw" {
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "igw-${var.team}"
+    env  = var.env
+  }
+}
+
+# Route rule which we attach to the route table and Internet Gateway
+# Here we want traffic from the gateway to go to 0.0.0.0/0
+resource "aws_route" "igw-all-route" {
+  route_table_id         = aws_route_table.igw.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.main.id
 }
