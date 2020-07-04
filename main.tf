@@ -9,7 +9,7 @@ terraform {
     region = "ap-southeast-2"
   }
 }
-
+# can I move the above elsewhere?
 
 # Setup our aws provider
 provider "aws" {
