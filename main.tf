@@ -2,6 +2,15 @@
 # https://www.terraform.io/docs/backends/types/index.html
 # https://www.terraform.io/docs/backends/types/s3.html
 
+terraform {
+  backend "s3" {
+    bucket = "joes-tf-state"
+    key    = "state_files/terraform.tfstate"
+    region = "ap-southeast-2"
+  }
+}
+
+
 # Setup our aws provider
 provider "aws" {
   # Don't commit keys, I have for testing.. but they're invalid.
