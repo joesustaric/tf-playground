@@ -9,7 +9,6 @@ I want to attempt...
 .. maybe more.
 
 
-
 Also attempt similar as above but maybe for GCP..
 
 Also Playing with https://www.checkov.io/  
@@ -31,3 +30,16 @@ chekov
 
 ## Terraform Setup
 `terraform init`
+
+
+## WIP notes
+`.tfstate` file is important.  
+Do not commit to git (at least not in plain text) it can / will have sensitive information in it.  
+Use remote state https://www.terraform.io/docs/state/remote.html , it can save to 
+> Terraform Cloud, HashiCorp Consul, Amazon S3, Alibaba Cloud OSS, and more.`
+
+See https://www.terraform.io/docs/backends/ how to configure.
+This repo will use S3
+
+TODO : use partial config to separate secrets. https://www.terraform.io/docs/backends/config.html#partial-configuration (can use `kms_key_id` to encrypt it on s3)
+
