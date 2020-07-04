@@ -21,11 +21,29 @@ provider "aws" {
   region = "ap-southeast-2"
 }
 
-# Define a vpc
-resource "aws_vpc" "joes-vpc" { # "aws_vps" = type , "joes-vpc" = name
+# Doco https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.44.0
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html
+
+# Virtual Private Cloud 
+# https://www.terraform.io/docs/providers/aws/r/vpc.html
+# https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+resource "aws_vpc" "main" { # "aws_vps" = type , "joes-vpc" = name
   cidr_block = "10.0.0.0/16" # 65536 ip addresses
   tags = {
-    Name = "JoesTestVPC"
-    Team = "teamFoo"
+    name = "Main VPC"
+    team = var.team
+    env = var.env
+  }
+}
+
+# Internet Gateway 
+# Resources in public subnets to communicate to the internet
+# https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "Main IG"
+    env = var.env
   }
 }
