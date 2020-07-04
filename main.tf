@@ -1,8 +1,12 @@
+# Set up backend to store .tfstate file
+# https://www.terraform.io/docs/backends/types/index.html
+# https://www.terraform.io/docs/backends/types/s3.html
+
 # Setup our aws provider
 provider "aws" {
   # Don't commit keys, I have for testing.. but they're invalid.
-  # access_key = "${var.aws_access_key_id}"
-  # secret_key = "${var.aws_secret_access_key}"
+  # access_key = var.aws_access_key_id
+  # secret_key = var.aws_secret_access_key
 
   version = "~> 2.0"
   region = "ap-southeast-2"
