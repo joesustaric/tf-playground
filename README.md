@@ -50,5 +50,5 @@ Use remote state https://www.terraform.io/docs/state/remote.html , it can save t
 
 ## WIP Notes
 #### AWS Stack vs Terraform Modules
-Looks like you can create stacks in Terraform via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). Although Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. 
+Looks like you can create stacks in Terraform via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). Although Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. (I think.... maybe im wrong.. need to confirm)
 
