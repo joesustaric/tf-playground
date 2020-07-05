@@ -1,28 +1,32 @@
-# About
-Just me messing around with TF [![Build Status](https://travis-ci.org/joesustaric/tf-playground.svg?branch=master)](https://travis-ci.org/joesustaric/tf-playground)
+# Terraform Playground
+[![Build Status](https://travis-ci.org/joesustaric/tf-playground.svg?branch=master)](https://travis-ci.org/joesustaric/tf-playground)
 
-I want to attempt...
+Here lies a repository to construct an aws VPC with some TBD other resources..  
+This is mostly as a self reference on how to do a these things but I also was to try some other stuff..
 
-- [ ] Create a AWS VPC including multi AZ private and public subnets
-- [ ] Bastion box to access VPC
-- [ ] ECS cluster? / something in there?
-- [ ] Use [checkov](https://www.checkov.io/)
+Trying to attempt...
+
+- [ ] Create a AWS VPC including multi AZ private and public subnets (basic setup)
+- [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
+- [ ] ECS cluster / EKS setup / something with more complexity.
+- [ ] Manage Iam roles.. perhaps via [iamy](https://github.com/99designs/iamy)
+- [ ] Use [checkov](https://www.checkov.io/) to lock that down.
 - [x] Get checkov running in a CI?
+- [ ] Drift detection (aws moves from code, when code moves from aws..)
+
+Stretch...
 - [ ] Also attempt similar as above but maybe for GCP..
 
-install `pip install checkov`
-
-This also uses `asdf-vm` for version management.
-
 ## Using 
-terraform  
-aws-vault  
-chekov
+* [Terraform](https://www.terraform.io/)  
+* [`aws-vault`](https://github.com/99designs/aws-vault) for local AWS credential managment 
+* [chekov](https://github.com/bridgecrewio/checkov) 
+* [`asdf`](https://github.com/asdf-vm/asdf)(optional) for version management
 
 ## Setup
 
 1. Install Terraform. `brew install terraform`
-2. Tab auto completion `terraform -install-autocomplete`
+2. Install Tab auto completion `terraform -install-autocomplete`
 3. `terraform init`
 4. install checkov `pip install checkov`
 
