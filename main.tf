@@ -3,10 +3,9 @@
 # https://www.terraform.io/docs/backends/types/s3.html
 
 terraform {
+  required_version = "~> 0.12"
   backend "s3" {
-    bucket = "joes-tf-state"
-    key    = "state_files/terraform.tfstate"
-    region = "ap-southeast-2"
+    encrypt = true
   }
 }
 # can I move the above elsewhere?
@@ -30,9 +29,9 @@ provider "aws" {
 resource "aws_vpc" "main" {  # "aws_vps" = type , "joes-vpc" = name
   cidr_block = "10.0.0.0/16" # 65536 ip addresses
   tags = {
-    Name = "Main VPC"
-    team = var.team
-    env  = var.env
+    Name        = "Main VPC"
+    Team        = var.team
+    Environment = var.env
   }
 }
 
@@ -43,8 +42,8 @@ resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "Main IG"
-    env  = var.env
+    Name        = "Main IG"
+    Environment = var.env
   }
 }
 
@@ -52,8 +51,8 @@ resource "aws_internet_gateway" "main" {
 resource "aws_route_table" "igw" {
   vpc_id = aws_vpc.main.id
   tags = {
-    Name = "igw-${var.team}"
-    env  = var.env
+    Name        = "igw-${var.team}"
+    Environment = var.env
   }
 }
 
