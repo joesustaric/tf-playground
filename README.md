@@ -31,7 +31,7 @@ Stretch...
 4. install checkov `pip install checkov`
 
 # TF Backend setup
-Inside the `remote-state` there is terraform code which sets up an encrypted S3 bucket to hold then subsequent terraform state files, also a DynamoDB table to enable state locking so if two people attempt to update state at the same time it will error.  
+Inside the `remote-state` there is terraform code which sets up an encrypted S3 bucket to hold then subsequent terraform state files, also a DynamoDB table to enable state locking so if two people attempt to update state at the same time it will error.  See https://www.terraform.io/docs/state/locking.html
 
 This needs to be run first via 
 ```
@@ -49,6 +49,4 @@ Use remote state https://www.terraform.io/docs/state/remote.html , it can save t
 
 See https://www.terraform.io/docs/backends/ how to configure.
 This repo will use S3
-
-TODO : use partial config to separate secrets. https://www.terraform.io/docs/backends/config.html#partial-configuration (can use `kms_key_id` to encrypt it on s3)
 

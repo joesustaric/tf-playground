@@ -19,6 +19,7 @@ resource "aws_kms_key" "terraform_key" {
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "joes-tf-state-encrypted"
   acl    = "private" # this is default.. need to sort out for shared IAM (doing all this on root acc)
+  
   #checkov:skip=CKV_AWS_18:Prod you _should_ enable logging for the tfstate (but I'm not)
   #checkov:skip=CKV_AWS_52:Prod you _should_ enable MFA delete Enabled (but I'm not)
 
