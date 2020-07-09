@@ -9,13 +9,14 @@ Trying to attempt...
 - [ ] Create a AWS VPC including multi AZ private and public subnets (basic setup)
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
 - [ ] ECS cluster / EKS setup / something with more complexity.
-- [ ] Manage Iam roles.. perhaps via [iamy](https://github.com/99designs/iamy)
+- [ ] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
 - [x] Use [checkov](https://www.checkov.io/) to lock that down.
 - [x] Get checkov running in a CI
 - [ ] Drift detection (aws moves from code, when aws moves from cf definition..)
+- [ ] Play with [awsspec](https://github.com/k1LoW/awspec) see if its any good
 
 Stretch...
-- [ ] Also attempt similar as above but maybe for GCP..
+- [ ] Also attempt similar as above but maybe for GCP?..
 
 ## Using 
 * [`Terraform`](https://www.terraform.io/)  
@@ -43,12 +44,16 @@ More [info](https://www.terraform.io/docs/backends/).
 Yes this will create a local `.tfstate` file but it should only be needed to run once. (yeah chicken egg etc..)  
 
 ## Notes
-`.tfstate` file is important.  
+`.tfstate` file is super important.  
 Do not commit to git (at least not in plain text) it can / will have sensitive information in it.  
 Use remote state https://www.terraform.io/docs/state/remote.html , it can save to 
 > Terraform Cloud, HashiCorp Consul, Amazon S3, Alibaba Cloud OSS, and more.`
 
-## WIP Notes
 #### AWS Stack vs Terraform Modules
-Looks like you can create stacks in Terraform via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). Although Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. (I think.... maybe im wrong.. need to confirm)
+TF has a state file (`.tfstate`). Terraform uses this to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures. 
+It will refresh itself prior to any operation.
+
+This is a giant dependancy graph. It uses this to optimise performance on `terraform plan` executions and other processing work. More info [here](https://www.terraform.io/docs/state/purpose.html).
+
+Looks like you can create stacks in Terraform via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). Although Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. 
 
