@@ -47,7 +47,7 @@ resource "aws_route_table" "ngw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "ngw-${var.team}${var.env}"
+    Name = "ngw-${var.team}"
     Env  = var.env
   }
 }
