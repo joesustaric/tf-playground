@@ -41,3 +41,38 @@ resource "aws_route" "igw-all-route" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.main.id
 }
+
+
+resource "aws_route_table" "ngw" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "ngw-${var.team}${var.env}"
+    Env  = var.env
+  }
+}
+
+resource "aws_route" "ngw" {
+  route_table_id = aws_route_table.ngw.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.main.id
+}
+
+# Elastic IP Address (Public IPv4 IP)
+resource "aws_eip" "nat" {
+  vpc = true
+}
+
+# NAT Gateway
+# https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+# Enable instances in a private subnet to connect to the internet or other AWS services, 
+# but prevent the internet from initiating a connection with those instances
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.nat.id # Assign the Elastic IP to the NAT gateway 
+  subnet_id = aws_subnet.public_subnet_a.id
+
+  tags = {
+    Name = "nat-gateway-${var.team}"
+    Env = var.env
+  }
+}
