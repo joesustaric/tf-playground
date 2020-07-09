@@ -6,6 +6,9 @@ terraform {
   required_version = "~> 0.12"
   backend "s3" {
     encrypt = true
+    bucket  = "joes-tf-state-encrypted"
+    key     = "prod/vpc/terraform.tfstate"
+    region  = "ap-southeast-2"
   }
 }
 # can I move the above elsewhere?
@@ -21,7 +24,7 @@ provider "aws" {
 }
 
 module "main_vpc" {
-  source               = "./modules/vpc"
+  source               = "../../modules/vpc"
   env                  = var.env
   team                 = var.team
   region               = var.region

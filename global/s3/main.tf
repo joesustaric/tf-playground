@@ -1,3 +1,15 @@
+# This blow block was added in after run for the first time 
+# This then migrates the tfstate file to s3
+terraform {
+  backend "s3" {
+    bucket         = "joes-tf-state-encrypted"
+    key            = "global/s3/terraform.tfstate"
+    region         = "ap-southeast-2"
+    dynamodb_table = "tf-app-state"
+    encrypt        = true
+  }
+}
+
 provider "aws" {
   region = "ap-southeast-2"
 }
