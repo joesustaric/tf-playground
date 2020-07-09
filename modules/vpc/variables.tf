@@ -19,21 +19,21 @@ variable "cidr_block" {
 }
 
 variable "az_zone_a_id" {
-  type = string
+  type        = string
   description = "The aws zone id st avalability zone a for the region"
 }
 
 variable "public_subnet_a_cidr" {
-  type = string
+  type        = string
   description = "The CIDR block for public subnet a"
 }
 
 variable "az_zone_b_id" {
-  type = string
+  type        = string
   description = "The aws zone id st avalability zone b for the region"
 }
 
 variable "public_subnet_b_cidr" {
-  type = string
+  type        = string
   description = "The CIDR block for public subnet b"
 }

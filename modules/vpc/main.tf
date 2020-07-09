@@ -4,7 +4,7 @@
 # Virtual Private Cloud 
 # https://www.terraform.io/docs/providers/aws/r/vpc.html
 # https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
-resource "aws_vpc" "main" {  # "aws_vps" = type , "joes-vpc" = name
+resource "aws_vpc" "main" { # "aws_vps" = type , "joes-vpc" = name
   cidr_block = var.cidr_block
   tags = {
     Name        = "Main VPC"
@@ -53,9 +53,9 @@ resource "aws_route_table" "ngw" {
 }
 
 resource "aws_route" "ngw" {
-  route_table_id = aws_route_table.ngw.id
+  route_table_id         = aws_route_table.ngw.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id = aws_nat_gateway.main.id
+  nat_gateway_id         = aws_nat_gateway.main.id
 }
 
 # Elastic IP Address (Public IPv4 IP)
@@ -69,10 +69,10 @@ resource "aws_eip" "nat" {
 # but prevent the internet from initiating a connection with those instances
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.nat.id # Assign the Elastic IP to the NAT gateway 
-  subnet_id = aws_subnet.public_subnet_a.id
+  subnet_id     = aws_subnet.public_subnet_a.id
 
   tags = {
     Name = "nat-gateway-${var.team}"
-    Env = var.env
+    Env  = var.env
   }
 }
