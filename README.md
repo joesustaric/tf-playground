@@ -6,7 +6,7 @@ This is mostly as a self reference on how to do a these things but I also was to
 
 Trying to attempt...
 - [ ] Following this randomly googled [tf best practices](https://github.com/ozbillwang/terraform-best-practices) list.
-- [ ] Create a AWS VPC including multi AZ private and public subnets (basic setup)
+- [x] Create a AWS VPC including multi AZ private and public subnets (basic setup)
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
 - [ ] ECS cluster / EKS setup / something with more complexity.
 - [ ] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
