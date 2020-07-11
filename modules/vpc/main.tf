@@ -42,8 +42,15 @@ resource "aws_route" "igw-all-route" {
   gateway_id             = aws_internet_gateway.main.id
 }
 
+# Elastic IP Address (Public IPv4 IP)
+# Static IP address allow  private instances to make API calls to third party sources 
+# that require the instances ip address for allow-listing purposes.
+# Outgoing requests from resources in the private subnet will bear the ip address of the NGW.
+resource "aws_eip" "nat" {
+  vpc = true
+}
 
-resource "aws_route_table" "ngw" {
+resource "aws_route_table" "ngw_rt" {
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -52,15 +59,10 @@ resource "aws_route_table" "ngw" {
   }
 }
 
-resource "aws_route" "ngw" {
-  route_table_id         = aws_route_table.ngw.id
+resource "aws_route" "ngw_route" {
+  route_table_id         = aws_route_table.ngw_rt.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.main.id
-}
-
-# Elastic IP Address (Public IPv4 IP)
-resource "aws_eip" "nat" {
-  vpc = true
 }
 
 # NAT Gateway
