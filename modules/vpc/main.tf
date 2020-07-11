@@ -13,6 +13,11 @@ resource "aws_vpc" "main" { # "aws_vps" = type , "joes-vpc" = name
   }
 }
 
+# For the selected region get the available zones. 
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
 # Internet Gateway 
 # Resources in public subnets to communicate to the internet
 # https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html

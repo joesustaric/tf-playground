@@ -18,19 +18,9 @@ variable "cidr_block" {
   description = "CIDR address block for the VPC"
 }
 
-variable "az_zone_a_id" {
-  type        = string
-  description = "The aws zone id st avalability zone a for the region"
-}
-
 variable "public_subnet_a_cidr" {
   type        = string
   description = "The CIDR block for public subnet a"
-}
-
-variable "az_zone_b_id" {
-  type        = string
-  description = "The aws zone id st avalability zone b for the region"
 }
 
 variable "public_subnet_b_cidr" {

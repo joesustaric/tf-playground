@@ -2,7 +2,7 @@
 resource "aws_subnet" "private_subnet_a" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.private_subnet_a_cidr
-  availability_zone_id = var.az_zone_a_id
+  availability_zone_id = data.aws_availability_zones.available.zone_ids[0]
 
   tags = {
     Name = "private-subnet-a-${var.team}"
@@ -20,7 +20,7 @@ resource "aws_route_table_association" "private_subnet_a" {
 resource "aws_subnet" "private_subnet_b" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.private_subnet_b_cidr
-  availability_zone_id = var.az_zone_b_id
+  availability_zone_id = data.aws_availability_zones.available.zone_ids[1]
 
   tags = {
     Name = "private-subnet-b-${var.team}"

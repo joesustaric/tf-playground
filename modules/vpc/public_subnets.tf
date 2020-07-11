@@ -5,7 +5,7 @@
 resource "aws_subnet" "public_subnet_a" {
   vpc_id               = aws_vpc.main.id
   cidr_block           = var.public_subnet_a_cidr
-  availability_zone_id = var.az_zone_a_id
+  availability_zone_id = data.aws_availability_zones.available.zone_ids[0]
 
   tags = {
     Name = "public-subnet-a-${var.team}"
@@ -25,7 +25,7 @@ resource "aws_route_table_association" "public_subnet_a" {
 resource "aws_subnet" "public_subnet_b" {
   vpc_id               = aws_vpc.main.id
   cidr_block           = var.public_subnet_b_cidr
-  availability_zone_id = var.az_zone_b_id
+  availability_zone_id = data.aws_availability_zones.available.zone_ids[1]
 
   tags = {
     Name = "public-subnet-b-${var.team}"
