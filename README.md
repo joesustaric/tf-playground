@@ -3,17 +3,17 @@
 
 Here lies a repository to construct an aws VPC with some other TBD resources..  
 This is mostly as a self reference on how to do a these things, but also an example of how to run some form of decent CI with Infrastructure as Code tools..
+Trying to follow this randomly googled [tf best practices](https://github.com/ozbillwang/terraform-best-practices) list as well.. 
 
-Trying to attempt...
-- [ ] Following this randomly googled [tf best practices](https://github.com/ozbillwang/terraform-best-practices) list.
+Lets try to attempt...
 - [x] Create a AWS VPC including multi AZ private and public subnets (basic setup)
-- [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
-- [ ] ECS cluster / EKS setup / something with more complexity.
-- [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
-- [ ] Get IAM role sync checks working in CI
 - [x] Use [checkov](https://www.checkov.io/) to lock that down.
 - [x] Get checkov running in a CI
+- [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
+- [ ] Get IAM role sync checks working in CI
 - [ ] Drift detection (aws moves from code, when aws moves from cf definition..)
+- [ ] ECS cluster / EKS setup / something with more complexity.
+- [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
 - [ ] Play with [awsspec](https://github.com/k1LoW/awspec) see if its any good
 
 Stretch...
@@ -27,7 +27,7 @@ Stretch...
 * [`asdf`](https://github.com/asdf-vm/asdf) for Terraform version management (optional)
 * ['Travis CI'](https://www.travis-ci.com) For Continious Integration
 
-## Install the Tools
+## Install the Tools ⚒
 1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)
 1a. Install Tab auto completion `terraform -install-autocomplete`
 2. install checkov `pip install checkov`
