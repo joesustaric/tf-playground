@@ -7,4 +7,4 @@ checkov -d .
 
 echo "Checking if IAM Config is in sync....."
 echo "todo assume role"
-awscli --help
+aws --help
