@@ -7,7 +7,12 @@ checkov -d .
 
 echo "Checking if IAM Config is in sync....."
 echo "todo assume role"
-aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --role-session-name Travis-CI
+
+# The output of the assume role command will log out the AWS secrets.. 
+# TODO - Find a better way to do this with Travis CI..
+set +x
+aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output none --role-session-name Travis-CI
+set -x
 
 echo " Installing Iamy.."
 echo "${PATH}"
