@@ -25,9 +25,10 @@ Stretch...
 * [`chekov`](https://github.com/bridgecrewio/checkov) 
 * [`iamy`](https://github.com/99designs/iamy) AWS IAM configuration into YAML files
 * [`asdf`](https://github.com/asdf-vm/asdf) for Terraform version management (optional)
+* ['Travis CI'](https://www.travis-ci.com) For Continious Integration
 
 ## Install the Tools
-1. Install stuff `brew install terraform iamy`
+1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)
 1a. Install Tab auto completion `terraform -install-autocomplete`
 2. install checkov `pip install checkov`
 
@@ -35,6 +36,13 @@ Stretch...
  - TODO
 
 # CI Setup ♻️
+Using Travis CI. 
+There is a Travis CI user in the IAM config, which can assume the 
+Encrypting Environment Variables via the [Travis CLI tool](https://docs.travis-ci.com/user/environment-variables/#encrypting-environment-variables)..
+
+```bash
+travis encrypt MY_SECRET_ENV=super_secret --add env.global
+```
 - TODO
 - [ ] Enable Drift detection.
 > Drift is the term for when the real-world state of your infrastructure differs from the state defined in your configuration
