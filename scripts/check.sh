@@ -13,7 +13,7 @@ echo "todo assume role"
 aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output json --role-session-name Travis-CI > /dev/null 2>&1
 
 echo " Installing Iamy.."
-curl https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-darwin-amd64 --output iamy
+curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-darwin-amd64 --output iamy
 chmod +x iamy
 ./iamy pull -d ./global/IAM
 
