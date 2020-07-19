@@ -11,7 +11,7 @@ echo "todo assume role"
 # The output of the assume role command will log out the AWS secrets.. 
 # TODO - Find a better way to do this with Travis CI..
 set +x
-aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output none --role-session-name Travis-CI
+aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output json --role-session-name Travis-CI
 set -x
 
 echo " Installing Iamy.."
