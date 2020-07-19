@@ -32,10 +32,23 @@ Stretch...
 1a. Install Tab auto completion `terraform -install-autocomplete`
 2. install checkov `pip install checkov`
 
-# Repo Structure 🏛
- - TODO
+## Repo Structure 🏛
+ ```
+├── README.md
+├── global
+│   ├── IAM
+│   └── s3
+├── mgmt
+├── modules
+│   └── vpc
+├── prod
+│   └── vpc
+├── scripts
+│   └── check.sh
+└── stage
+ ```
 
-# CI Setup ♻️
+## CI Setup ♻️
 Using Travis CI. 
 There is a Travis CI user in the IAM config, which can assume the 
 Encrypting Environment Variables via the [Travis CLI tool](https://docs.travis-ci.com/user/environment-variables/#encrypting-environment-variables)..
@@ -47,7 +60,7 @@ travis encrypt MY_SECRET_ENV=super_secret --add env.global
 - [ ] Enable Drift detection.
 > Drift is the term for when the real-world state of your infrastructure differs from the state defined in your configuration
 
-# Terraform Backend Setup 🍑
+## Terraform Backend Setup 🍑
 Inside the `remote-state` there is terraform code which sets up an encrypted S3 bucket to hold the  Terraform state files. Also a DynamoDB table to enable [state locking](https://www.terraform.io/docs/state/locking.html).
 
 Run this first..
