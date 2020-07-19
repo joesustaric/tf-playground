@@ -1,0 +1,7 @@
+Description: joes-production-allow-read-only
+Policy:
+  Statement:
+    Action: sts:AssumeRole
+    Effect: Allow
+    Resource: arn:aws:iam::580133377048:role/joes-production-read-only
+  Version: "2012-10-17"

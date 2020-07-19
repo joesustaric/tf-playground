@@ -1,0 +1,6 @@
+Groups:
+- admin
+Policies:
+- arn:aws:iam::aws:policy/IAMUserChangePassword
+- joes-production-allow-read-only
+- joes-production-allow-policy
