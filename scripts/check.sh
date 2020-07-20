@@ -17,6 +17,6 @@ echo "todo assume role"
 echo " Installing Iamy.."
 curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-linux-amd64 --output iamy_ci
 chmod +x iamy_ci
-./iamy_ci pull -d ./global/IAM
+AWS_REGION=apsoutheast-2 ./iamy_ci pull -d ./global/IAM
 
 git ls-files -m

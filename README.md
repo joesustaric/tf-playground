@@ -18,6 +18,7 @@ Lets try to attempt...
 
 Stretch...
 - [ ] Also attempt similar as above but maybe for GCP?..
+- [ ] Mebbe https://docs.aws.amazon.com/cdk/latest/guide/home.html ?
 
 ## Tools 🔩
 * [`Terraform`](https://www.terraform.io/)  
