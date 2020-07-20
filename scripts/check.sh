@@ -10,7 +10,7 @@ echo "todo assume role"
 
 # The output of the assume role command will log out the AWS secrets.. 
 # TODO - Find a better way to do this with Travis CI..
-aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output json --role-session-name Travis-CI > /dev/null 2>&1
+aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output json --role-session-name ci-session > /dev/null 2>&1
 
 
 ## Fix this not working...
