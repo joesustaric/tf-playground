@@ -15,7 +15,7 @@ aws sts assume-role --role-arn "arn:aws:iam::580133377048:role/CI-Role" --output
 
 ## Fix this not working...
 echo " Installing Iamy.."
-curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-darwin-amd64 --output iamy_ci
+curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-linux-amd64 --output iamy_ci
 chmod +x iamy_ci
 ./iamy_ci pull -d ./global/IAM
 
