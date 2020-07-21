@@ -15,7 +15,8 @@ AWS_REGION=ap-southeast-2 ./iamy_ci pull -d ./global/IAM
 rm iamy_ci
 
 if [[ $(git add -A -n | wc -l) -ne 0 ]]; then
-    echo "IAM changes.. Needs attention"
+    echo "IAM changes detected.. Needs attention."
     exit 1
 fi
 
+echo "IAM Configuration is up to date."
