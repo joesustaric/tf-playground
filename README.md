@@ -21,12 +21,12 @@ Stretch...
 - [ ] Mebbe https://docs.aws.amazon.com/cdk/latest/guide/home.html ?
 
 ## Tools 🔩
-* [`Terraform`](https://www.terraform.io/)  
-* [`aws-vault`](https://github.com/99designs/aws-vault) for local AWS credential managment (optional)
-* [`chekov`](https://github.com/bridgecrewio/checkov) 
-* [`iamy`](https://github.com/99designs/iamy) AWS IAM configuration into YAML files
-* [`asdf`](https://github.com/asdf-vm/asdf) for Terraform version management (optional)
-* ['Travis CI'](https://www.travis-ci.com) For Continious Integration
+* [`Terraform`](https://www.terraform.io/) IoC Tool.
+* [`aws-vault`](https://github.com/99designs/aws-vault) for local AWS credential managment (optional).
+* [`chekov`](https://github.com/bridgecrewio/checkov) Static Code analysis tool for IaC.
+* [`iamy`](https://github.com/99designs/iamy) AWS IAM configuration into YAML files.
+* [`asdf`](https://github.com/asdf-vm/asdf) for Terraform version management (optional).
+* [`Travis CI`](https://www.travis-ci.com)
 
 ## Install the Tools ⚒
 1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)
@@ -57,6 +57,7 @@ Encrypting Environment Variables via the [Travis CLI tool](https://docs.travis-c
 ```bash
 travis encrypt MY_SECRET_ENV=super_secret --add env.global
 ```
+
 - TODO
 - [ ] Enable Drift detection.
 > Drift is the term for when the real-world state of your infrastructure differs from the state defined in your configuration
