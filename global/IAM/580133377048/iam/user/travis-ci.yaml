@@ -1,6 +1,4 @@
 Groups:
 - robots
-Policies:
-- CI-Role-policy
 Tags:
   Name: Travis CI User

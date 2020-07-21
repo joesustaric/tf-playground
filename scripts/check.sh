@@ -19,4 +19,8 @@ curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-linux-am
 chmod +x iamy_ci
 AWS_REGION=ap-southeast-2 ./iamy_ci pull -d ./global/IAM
 
-git ls-files -m
+if [[ $(git add -A -n | wc -l) -ge 0 ]]; then
+    echo "IAM changes.. Needs attention"
+    exit 1
+fi
+
