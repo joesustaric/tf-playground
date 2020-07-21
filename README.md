@@ -10,7 +10,7 @@ Lets try to attempt...
 - [x] Use [checkov](https://www.checkov.io/) to lock that down.
 - [x] Get checkov running in a CI
 - [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
-- [ ] Get IAM role sync checks working in CI
+- [x] Get IAM role sync checks working in CI
 - [ ] Drift detection (aws moves from code, when aws moves from cf definition..)
 - [ ] ECS cluster / EKS setup / something with more complexity.
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
