@@ -14,6 +14,7 @@ chmod +x iamy_ci
 AWS_REGION=ap-southeast-2 ./iamy_ci pull -d ./global/IAM
 
 # Check for any new or modified git files.
+git add -A -n
 if [[ $(git add -A -n | wc -l) -ge 0 ]]; then
     echo "IAM changes.. Needs attention"
     exit 1
