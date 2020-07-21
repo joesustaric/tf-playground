@@ -29,7 +29,7 @@ Stretch...
 * [`Travis CI`](https://www.travis-ci.com)
 
 ## Install the Tools ⚒
-1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)
+1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)  
 1a. Install Tab auto completion `terraform -install-autocomplete`
 2. install checkov `pip install checkov`
 
