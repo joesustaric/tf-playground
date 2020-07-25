@@ -13,11 +13,13 @@ Lets try to attempt...
 - [x] Get IAM role sync checks working in CI
 - [ ] Drift detection (aws moves from code, when aws moves from cf definition..)
 - [ ] ECS cluster / EKS setup / something with more complexity.
+    - [ ] wip - [ecs maybe](http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster)
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
 - [ ] Play with [awsspec](https://github.com/k1LoW/awspec) see if its any good
 
 Stretch...
 - [ ] Also attempt similar as above but maybe for GCP?..
+- [ ] Check out [Terratest](https://terratest.gruntwork.io/)
 - [ ] Mebbe https://docs.aws.amazon.com/cdk/latest/guide/home.html ?
 
 ## Tools 🔩
@@ -73,6 +75,10 @@ terraform apply
 More [info](https://www.terraform.io/docs/backends/).
 
 Yes this will create a local `.tfstate` file but it should only be needed to run once. (yeah chicken egg etc..)  
+
+## Helpful sites refrenced 
+https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d#ff91  
+
 
 ## Notes
 `.tfstate` file is super important.  
