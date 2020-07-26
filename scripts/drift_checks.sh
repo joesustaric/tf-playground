@@ -10,4 +10,5 @@ unzip "terraform_"$TF_VERSION"_linux_amd64.zip"
 rm "terraform_"$TF_VERSION"_linux_amd64.zip"
 
 cd prod/vpc
+terraform init
 terraform plan -var-file=prod.tfvars -detailed-exitcode
