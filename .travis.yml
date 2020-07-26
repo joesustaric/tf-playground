@@ -1,4 +1,8 @@
 language: python
+before_install:
+  - sudo apt-get update
+services:
+  - docker
 python:
 - '3.6'
 install:
@@ -6,6 +10,7 @@ install:
 script:
 - scripts/checkov.sh
 - scripts/iam_check.sh
+- script/drift_checks.sh
 env:
   global:
   - secure: RUTSGPxPFgvMyxhFR+MC7LCv/h9+wRUdz1r2sSROh+PVUEb6SiNr1++1AcUIA0z3jYH6IDyl+ZGKLtcuseP3I1HbTD45wAZt4bRNUh6tZPYCQJmZyZKms/AUn+jFk3cYX73cv1IUs4Ywumpu68GvAeRgU8IGbucSq0XQaUizARl/PhA+n3swZYwSy8kTBTLGhoQNe71yfJHmAV27eoY3LDzNyftFuGWHm4AF3J2OdfH/CeVBe2hddnWfLtJLafuzCG39xKJrn9S5PyXzw55PHnSj8ytjXU/14CiITxeAW7fF3Xde8HpHOf1A8xrTcE+pti0BKgLNR2o/XVYv5wnuA6+M8s6V0b/aYq0SmIiZohvGn8oh9IFHjHVQZrNAUU17Lf821lvWQluMwPREZC9oRnqjO8WWoTsPgiaGMih/dBDoKHv+dmtnC0kMu0fYVlq4VYwrCQji/AznyXUMlRHaC9sGWg650fGcdebKHOl3Sq65Nf1AmC0QgKojrnOPNHQ55WToktCU6oHsuyjb8p+zt5nuCw+FJp5+BWuXFgqPwrXRMJLaFHKKnl+s2yyXf6kb4PYJC9jGDWUvzWElmDtaEvWfowy0BHkqmYzj0omjlu3e8B+fn9xRlDG3sV9wZhGhbxzDZtc4RDwoIGKTZgIQAhzB3xwuuGEG6gAZOVNtqPU=
