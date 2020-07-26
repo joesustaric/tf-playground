@@ -4,7 +4,7 @@ python:
 install:
 - pip install checkov awscli
 script:
-- scripts/check.sh
+- scripts/checkov.sh
 - scripts/iam_check.sh
 env:
   global:

@@ -10,6 +10,7 @@ chmod +x iamy_ci
 AWS_REGION=ap-southeast-2 ./iamy_ci pull -d ./global/IAM
 rm iamy_ci
 
+# if there are changes fail the check
 if [[ $(git add -A -n | wc -l) -ne 0 ]]; then
     echo "IAM changes detected.. Needs attention."
     exit 1
