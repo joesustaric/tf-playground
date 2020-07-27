@@ -22,6 +22,10 @@ Stretch...
 - [ ] Check out [Terratest](https://terratest.gruntwork.io/)
 - [ ] Mebbe https://docs.aws.amazon.com/cdk/latest/guide/home.html ?
 
+Fix Later..
+- [ ] IAM for travis Ci user..
+- [ ] Parallel checks
+
 ## Tools 🔩
 * [`Terraform`](https://www.terraform.io/) IoC Tool.
 * [`aws-vault`](https://github.com/99designs/aws-vault) for local AWS credential managment (optional).
