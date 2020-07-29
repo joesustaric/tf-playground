@@ -11,7 +11,7 @@ Lets try to attempt...
 - [x] Get checkov running in a CI
 - [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
 - [x] Get IAM role sync checks working in CI
-- [ ] Drift detection (aws moves from code, when aws moves from cf definition..)
+- [x] Drift detection (aws moves from code, when aws moves from cf definition..)
 - [ ] ECS cluster / EKS setup / something with more complexity.
     - [ ] wip - [ecs maybe](http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster)
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
@@ -23,11 +23,11 @@ Stretch...
 - [ ] Mebbe https://docs.aws.amazon.com/cdk/latest/guide/home.html ?
 
 Fix Later..
-- [ ] IAM for travis Ci user..
+- [ ] IAM for travis CI user..
 - [ ] Parallel checks
 
 ## Tools 🔩
-* [`Terraform`](https://www.terraform.io/) IoC Tool.
+* [`Terraform`](https://www.terraform.io/) IaC Tool.
 * [`aws-vault`](https://github.com/99designs/aws-vault) for local AWS credential managment (optional).
 * [`chekov`](https://github.com/bridgecrewio/checkov) Static Code analysis tool for IaC.
 * [`iamy`](https://github.com/99designs/iamy) AWS IAM configuration into YAML files.
@@ -35,14 +35,14 @@ Fix Later..
 * [`Travis CI`](https://www.travis-ci.com)
 
 ## Install the Tools ⚒
-1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz)  
+1. Install stuff `brew install terraform iamy travis` (If you're not on a mac figure it out..soz) check the `.version` file for the right version of Terraform.
 1a. Install Tab auto completion `terraform -install-autocomplete`
 2. install checkov `pip install checkov`
 
 ## Repo Structure 🏛
  ```
 ├── README.md
-├── global
+├── global 
 │   ├── IAM
 │   └── s3
 ├── mgmt
@@ -51,13 +51,12 @@ Fix Later..
 ├── prod
 │   └── vpc
 ├── scripts
-│   └── check.sh
 └── stage
  ```
 
 ## CI Setup ♻️
 Using Travis CI. 
-There is a Travis CI user in the IAM config, which can assume the 
+There is a Travis CI user in the IAM config.
 Encrypting Environment Variables via the [Travis CLI tool](https://docs.travis-ci.com/user/environment-variables/#encrypting-environment-variables)..
 
 ```bash
@@ -65,7 +64,7 @@ travis encrypt MY_SECRET_ENV=super_secret --add env.global
 ```
 
 - TODO
-- [ ] Enable Drift detection.
+- [x] Enable Drift detection.
 > Drift is the term for when the real-world state of your infrastructure differs from the state defined in your configuration
 
 ## Terraform Backend Setup 🍑
