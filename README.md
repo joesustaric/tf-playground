@@ -12,6 +12,7 @@ Lets try to attempt...
 - [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
 - [x] Get IAM role sync checks working in CI
 - [x] Drift detection (aws moves from code, when aws moves from cf definition..)
+    - [ ] Make script more dynamic for checks.
 - [x] How to manage secrets eg private key / db password
 - [ ] ECS cluster / EKS setup / something with more complexity.
     - [ ] wip - [ecs maybe](http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster)
