@@ -12,3 +12,9 @@ terraform {
   }
 }
 
+# TODO - ensure that secrets can only be access by roles that need them
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/secretsmanager_secret_version
+data "aws_secretsmanager_secret_version" "foo_token" {
+  secret_id = var.foo_token_id
+}
+
