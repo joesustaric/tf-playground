@@ -5,10 +5,11 @@
 terraform {
   required_version = "~> 0.12"
   backend "s3" {
-    encrypt = true
-    bucket  = "joes-tf-state-encrypted"
-    key     = "prod/vpc/terraform.tfstate"
-    region  = "ap-southeast-2"
+    encrypt        = true
+    bucket         = "joes-tf-state-encrypted"
+    key            = "prod/vpc/terraform.tfstate"
+    region         = "ap-southeast-2"
+    dynamodb_table = "tf-app-state"
   }
 }
 # can I move the above elsewhere?
