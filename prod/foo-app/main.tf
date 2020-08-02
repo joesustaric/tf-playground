@@ -18,3 +18,7 @@ data "aws_secretsmanager_secret_version" "foo_token" {
   secret_id = var.foo_token_id
 }
 
+#TODO - how to ensure this is hidden in console output (esp for CI) 
+output "foo_token" {
+  value = data.aws_secretsmanager_secret_version.foo_token.secret_string
+}
