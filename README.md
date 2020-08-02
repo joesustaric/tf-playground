@@ -12,7 +12,7 @@ Lets try to attempt...
 - [x] Manage IAM roles.. via [iamy](https://github.com/99designs/iamy)
 - [x] Get IAM role sync checks working in CI
 - [x] Drift detection (aws moves from code, when aws moves from cf definition..)
-- [ ] How to manage secrets eg private key / db password
+- [x] How to manage secrets eg private key / db password
 - [ ] ECS cluster / EKS setup / something with more complexity.
     - [ ] wip - [ecs maybe](http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster)
 - [ ] Bastion box to access VPC (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
@@ -41,6 +41,7 @@ Fix Later..
 2. install checkov `pip install checkov`
 
 ## Repo Structure 🏛
+- [ ] TODO - explain directory structure.
  ```
 ├── README.md
 ├── global 
@@ -79,6 +80,13 @@ terraform apply
 More [info](https://www.terraform.io/docs/backends/).
 
 Yes this will create a local `.tfstate` file but it should only be needed to run once. (yeah chicken egg etc..)  
+
+## How to Manage Secrets
+### AWS
+Using AWS Secrets Manager to hold secrets. 
+Refer to [this](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#bebe) on how to add a secret.  
+There should be clear access roles also defined about who can access these secrets.
+- [ ] TODO Create a clear way to assign users permission to access and modify secrets.
 
 ## Helpful sites refrenced 
 https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d#ff91  
