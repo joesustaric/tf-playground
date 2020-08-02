@@ -10,7 +10,7 @@ wget --quiet "https://releases.hashicorp.com/terraform/$TF_VERSION/terraform_"$T
 unzip "terraform_"$TF_VERSION"_linux_amd64.zip"
 rm "terraform_"$TF_VERSION"_linux_amd64.zip"
 
-# TODO - Find a better synamic way to traverse the definitions and run the checks
+# TODO - Find a better dynamic way to traverse the definitions and run the checks
 # rather than having to add them in here 1 by 1. 
 
 cd prod/vpc
