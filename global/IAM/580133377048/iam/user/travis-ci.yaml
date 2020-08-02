@@ -1,6 +1,7 @@
 Groups:
 - robots
 Policies:
+- arn:aws:iam::aws:policy/SecretsManagerReadWrite
 - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
 - arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess
 - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
