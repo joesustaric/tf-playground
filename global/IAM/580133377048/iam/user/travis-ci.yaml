@@ -4,6 +4,7 @@ Policies:
 - arn:aws:iam::aws:policy/SecretsManagerReadWrite
 - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
 - arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess
+- arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
 - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 Tags:
   Name: Travis CI User
