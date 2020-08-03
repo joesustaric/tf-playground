@@ -7,7 +7,7 @@ echo "Checking if IAM Config is in sync....."
 echo " Installing Iamy.."
 curl -L https://github.com/99designs/iamy/releases/download/v2.3.2/iamy-linux-amd64 --output iamy_ci
 chmod +x iamy_ci
-AWS_REGION=ap-southeast-2 ./iamy_ci push -d ./global/IAM | yes
+yes y | AWS_REGION=ap-southeast-2 ./iamy_ci push -d ./global/IAM 
 rm iamy_ci
 
 # if there are changes fail the check
