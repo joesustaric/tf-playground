@@ -1,7 +1,0 @@
-Description: Policy to attach to the CI user
-Policy:
-  Statement:
-    Action: sts:AssumeRole
-    Effect: Allow
-    Resource: arn:aws:iam::580133377048:role/CI-Role
-  Version: "2012-10-17"
