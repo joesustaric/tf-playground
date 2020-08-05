@@ -1,0 +1,13 @@
+AssumeRolePolicyDocument:
+  Statement:
+  - Action: sts:AssumeRole
+    Condition:
+      Bool:
+        aws:MultiFactorAuthPresent: "true"
+    Effect: Allow
+    Principal:
+      AWS: arn:aws:iam::580133377048:root
+  Version: "2012-10-17"
+Description: joes-production-read-only
+Policies:
+- arn:aws:iam::aws:policy/ReadOnlyAccess

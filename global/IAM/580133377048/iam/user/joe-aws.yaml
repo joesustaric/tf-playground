@@ -1,0 +1,5 @@
+Groups:
+- admin
+Policies:
+- arn:aws:iam::aws:policy/IAMUserChangePassword
+- joes-production-allow-policy
