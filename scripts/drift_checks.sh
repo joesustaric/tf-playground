@@ -14,10 +14,11 @@ rm "terraform_"$TF_VERSION"_linux_amd64.zip"
 # rather than having to add them in here 1 by 1. 
 
 # NAT Gateways cost $$ - create when using
-# cd prod/vpc
+# pushd prod/vpc
 # terraform init
 # terraform plan -var-file=prod.tfvars -detailed-exitcode
+# popd
 
-cd ../foo-app
+pushd prod/foo-app
 terraform init
 terraform plan -var-file=prod.tfvars -detailed-exitcode
