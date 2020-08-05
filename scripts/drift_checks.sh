@@ -13,9 +13,10 @@ rm "terraform_"$TF_VERSION"_linux_amd64.zip"
 # TODO - Find a better dynamic way to traverse the definitions and run the checks
 # rather than having to add them in here 1 by 1. 
 
-cd prod/vpc
-terraform init
-terraform plan -var-file=prod.tfvars -detailed-exitcode
+# NAT Gateways cost $$ - create when using
+# cd prod/vpc
+# terraform init
+# terraform plan -var-file=prod.tfvars -detailed-exitcode
 
 cd ../foo-app
 terraform init
