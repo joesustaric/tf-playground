@@ -16,6 +16,7 @@ Lets try to attempt...
 - [x] How to manage secrets eg private key / db password
 - [ ] ECS cluster / EKS setup / something with more complexity.
     - [ ] wip - [ecs maybe](http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster)
+- [ ] Set up a simple app to be deployed to the ecs cluster. (Golang API)
 - [ ] Bastion box to access EC2 instance (maybe via [this?](https://aws.amazon.com/blogs/infrastructure-and-automation/toward-a-bastion-less-world/))
 - [ ] Play with [awsspec](https://github.com/k1LoW/awspec) see if its any good
 
