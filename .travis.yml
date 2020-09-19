@@ -4,7 +4,7 @@ before_install:
 services:
   - docker
 python:
-- '3.6'
+- '3.8'
 install:
 - pip install checkov awscli
 script:
