@@ -13,74 +13,24 @@ terraform {
   }
 }
 
-#---- ecs-service-role ---------
-# https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html
-# IAM roles are required for the ECS container agent and ECS service scheduler.
-# Is this the service role for the aws ecs agent? (I think so)
-resource "aws_iam_role" "ecs-service-role" {
-  name               = "ecs-service-role"
-  path               = "/"
-  assume_role_policy = data.aws_iam_policy_document.ecs-service-policy.json
+provider "aws" {
+  # Don't commit AWS keys
+  # You can use this type of AWS authentication at your own risk
+  # access_key = var.aws_access_key_id
+  # secret_key = var.aws_secret_access_key
+
+  version = "~> 2.0"
+  region  = var.region
 }
 
-resource "aws_iam_role_policy_attachment" "ecs-service-role-attachment" {
-  role       = aws_iam_role.ecs-service-role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
-}
-
-data "aws_iam_policy_document" "ecs-service-policy" {
-  statement {
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ecs.amazonaws.com"]
-    }
-  }
-}
-#---------------------------------------------------------
-#--------- ecs-instance-role------------------------------
-# This is the role for the ECS ec2 instance.
-resource "aws_iam_role" "ecs-instance-role" {
-  name               = "ecs-instance-role"
-  path               = "/"
-  assume_role_policy = data.aws_iam_policy_document.ecs-instance-policy.json
-}
-
-data "aws_iam_policy_document" "ecs-instance-policy" {
-  statement {
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-  }
-}
-
-resource "aws_iam_role_policy_attachment" "ecs-instance-role-attachment" {
-  role       = aws_iam_role.ecs-instance-role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
-}
-
-# not sure why the sleep?
-resource "aws_iam_instance_profile" "ecs-instance-profile" {
-  name = "ecs-instance-profile"
-  path = "/"
-  role = aws_iam_role.ecs-instance-role.id
-  provisioner "local-exec" {
-    command = "sleep 10"
-  }
-}
-#---------------------------------------------------------
-
+# Reference another tfstate file to pluck out the output variables
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
     encrypt        = true
     bucket         = "joes-tf-state-encrypted"
     key            = "prod/vpc/terraform.tfstate"
-    region         = "ap-southeast-2"
+    region         =  var.region
     # dynamodb_table = "tf-app-state"
   }
 }
