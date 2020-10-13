@@ -31,7 +31,6 @@ data "terraform_remote_state" "vpc" {
     bucket         = "joes-tf-state-encrypted"
     key            = "prod/vpc/terraform.tfstate"
     region         =  var.region
-    # dynamodb_table = "tf-app-state"
   }
 }
 
