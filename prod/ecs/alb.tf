@@ -1,12 +1,12 @@
-# resource "aws_alb" "ecs-load-balancer" {
-#   name            = "ecs-load-balancer"
-#   security_groups = ["${aws_security_group.test_public_sg.id}"]
-#   subnets         = ["${aws_subnet.test_public_sn_01.id}", "${aws_subnet.test_public_sn_02.id}"]
+resource "aws_alb" "ecs-load-balancer" {
+  name            = "ecs-load-balancer"
+  security_groups = ["${aws_security_group.public_sg.id}"]
+  subnets         = ["${data.terraform_remote_state.vpc.outputs.public_subnet_a_id}", "${data.terraform_remote_state.vpc.outputs.public_subnet_b_id}"]
 
-#   tags {
-#     Name = "ecs-load-balancer"
-#   }
-# }
+  tags = {
+    Name = "ecs-alb"
+  }
+}
 
 # resource "aws_alb_target_group" "ecs-target-group" {
 #   name     = "ecs-target-group"
