@@ -39,46 +39,42 @@ resource "aws_security_group" "public_sg" {
   description = "Test public access security group"
   vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
 
+  # https://docs.bridgecrew.io/docs/networking_1-port-security
+  # May need to add specific ip ranges.
+  # ingress {
+  #   from_port   = 22
+  #   to_port     = 22
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
+
   ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    cidr_blocks = [
-    "0.0.0.0/0"]
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port = 80
-    to_port   = 80
-    protocol  = "tcp"
-    cidr_blocks = [
-    "0.0.0.0/0"]
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port = 8080
-    to_port   = 8080
-    protocol  = "tcp"
-    cidr_blocks = [
-    "0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "tcp"
-    cidr_blocks = [
-      "${data.terraform_remote_state.vpc.outputs.public_subnet_a_cidr}",
-    "${data.terraform_remote_state.vpc.outputs.public_subnet_b_cidr}"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "tcp"
+    cidr_blocks = [data.terraform_remote_state.vpc.outputs.public_subnet_a_cidr, data.terraform_remote_state.vpc.outputs.public_subnet_b_cidr]
   }
 
   egress {
     # allow all traffic to private SN
-    from_port = "0"
-    to_port   = "0"
-    protocol  = "-1"
-    cidr_blocks = [
-    "0.0.0.0/0"]
+    from_port   = "0"
+    to_port     = "0"
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
