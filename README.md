@@ -67,10 +67,6 @@ Encrypting Environment Variables via the [Travis CLI tool](https://docs.travis-c
 travis encrypt MY_SECRET_ENV=super_secret --add env.global
 ```
 
-- TODO
-- [x] Enable Drift detection.
-> Drift is the term for when the real-world state of your infrastructure differs from the state defined in your configuration
-
 ## Terraform Backend Setup 🍑
 Inside the `remote-state` there is terraform code which sets up an encrypted S3 bucket to hold the  Terraform state files. Also a DynamoDB table to enable [state locking](https://www.terraform.io/docs/state/locking.html).
 
@@ -106,5 +102,7 @@ It will refresh itself prior to any operation.
 
 This is a giant dependancy graph. It uses this to optimise performance on `terraform plan` executions and other processing work. More info [here](https://www.terraform.io/docs/state/purpose.html).
 
-Looks like you can create stacks in Terraform via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). Although Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. 
+The only way you can create AWS CF stacks is via [this](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html). But it appears that this isn't something that is used often when writing TF. You seem to have to paste in the CF directly.
+
+Terraform has a concept of [modules](https://www.terraform.io/docs/modules/index.html) which is a container for multiple resources that are used together. This helps mainly with reusability. 
 

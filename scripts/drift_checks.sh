@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xo pipefail
+set -exo pipefail
 
 export TF_VERSION=$(cat .version)
 export PATH=$PATH:$(pwd)
@@ -14,11 +14,17 @@ rm "terraform_"$TF_VERSION"_linux_amd64.zip"
 # rather than having to add them in here 1 by 1. 
 
 # NAT Gateways cost $$ - create when using
-pushd prod/vpc
-terraform init
-terraform plan -var-file=prod.tfvars -detailed-exitcode
-popd
+# pushd prod/vpc
+# terraform init
+# terraform plan -var-file=prod-vpc.tfvars -detailed-exitcode
+# popd
+
+# pushd prod/ecs
+# terraform init
+# terraform plan -var-file=prod-ecs.tfvars -detailed-exitcode
+# popd
 
 pushd prod/foo-app
 terraform init
 terraform plan -var-file=prod.tfvars -detailed-exitcode
+popd
