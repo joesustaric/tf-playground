@@ -10,6 +10,7 @@ resource "aws_lb" "ecs-load-balancer" {
   tags = {
     Name = "ecs-alb"
   }
+  #checkov:skip=CKV_AWS_91:Prod you _should_ enable logging for the lb (but I'm not)
 }
 
 # Target Groups - Used for routing requests to one or more registered targets
